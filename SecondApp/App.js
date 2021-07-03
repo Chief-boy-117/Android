@@ -1,73 +1,25 @@
-import * as React from 'react';
-import { StyleSheet, View, Text, Easing } from 'react-native';
-import { enableScreens } from "react-native-screens";
-
-enableScreens();
-
-import {NavigationContainer} from "@react-navigation/native";
-import {createNativeStackNavigator} from "react-native-screens/native-stack";
-import {createStackNavigator, TransitionPresets, CardStyleInterpolators} from "@react-navigation/stack";
-import Home from './app/screens/Home';
-import Settings from './app/screens/Settings';
-//import { Easing } from 'react-native-reanimated';
-
-//const Stack = createNativeStackNavigator();
-const Stack = createStackNavigator();
-
-const config = {
-  animation: 'spring',
-  config: {
-    stiffness: 1000,
-    damping: 50,
-    mass: 3,
-    overshootClamping: true,
-    restDisplacementThreshold: 0.01,
-    restSpeedThreshold: 0.01,
-  },
-};
-
-const closeConfig = {
-  animation: 'timing',
-  config: {
-    stiffness: 1000,
-    easing: Easing.linear,
-  },
-};
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
 export default function App() {
   return (
-    <NavigationContainer>
-        <Stack.Navigator
-         screenOptions={{
-           //stackAnimation: "fade",
-           gestureEnabled: true,
-           gestureDirection: "horizontal",
-          //  cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-
-          //  transitionSpec: {
-          //    open: config,
-          //    close: closeConfig
-          //  }
-
-          ...TransitionPresets.ModalSlideFromBottomIOS,
-         }}
-        >
-          <Stack.Screen 
-           options={{headerCenter: ()=> <Text>Home</Text>}}
-          name="Home" component={Home} />
-          <Stack.Screen name="Settings"
-          options={{headerLargeTitle: true}}
-          component={Settings} />
-        </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
+    <View style={styles.container}>
+      <Text style={styles.text}>Hello, world!</Text>
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    color: 'rgb(59,108,212)',
+    fontSize: 42,
+    fontWeight: '100',
+    textAlign: 'center',
+  },
+})
