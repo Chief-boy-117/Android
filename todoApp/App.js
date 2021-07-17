@@ -21,7 +21,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>Today's tasks</Text>
+        <Text style={styles.sectionTitle}>To-do tasks</Text>
 
         <View style={styles.items}>
         {
@@ -63,8 +63,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   sectionTitle: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
   items: {
     marginTop: 30,
